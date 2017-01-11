@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.TypedValue;
+import android.view.View;
 
 import com.github.fcannizzaro.materialstepper.AbstractStep;
 import com.github.fcannizzaro.materialstepper.R;
@@ -114,6 +115,7 @@ public class BaseStyle extends AppCompatActivity implements Stepable {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(primaryColor);
         toolbar.setTitle(Html.fromHtml(mTitle));
+        toolbar.setVisibility(View.GONE);
     }
 
     public Toolbar getToolbar() {
