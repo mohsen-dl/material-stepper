@@ -1,9 +1,26 @@
 <resources>
     <string name="app_name">MaterialStepper</string>
-    <string name="ms_prev">PREV</string>
-    <string name="ms_next">NEXT</string>
+    <string name="ms_prev">قبلی</string>
+    <string name="ms_next">بعدی</string>
     <string name="ms_end">COMPLETE</string>
     <string name="ms_continue">CONTINUE</string>
     <string name="ms_optional">Optional</string>
     <string name="ms_text_step">Step $current of $total</string>
+
+
+    <string name="Tab_fa">گام</string>
+    <string name="Select_fa">را انتخاب کنید</string>
+    <string name="City_fa">شهر خود</string>
+    <string name="JobType_fa">نوع شغل</string>
+    <string name="FoodType_fa">نوع غذا</string>
+    <string name="DeliveryType_fa">شیوه تحویل سفارش</string>
+    <string name="OtherDetails_fa">جزئیات دیگر</string>
+    <string name="fa_space">&#160;</string>
+
+    <string name="fa_arrow_circle_right">&#xf0a9;</string>
+    <string name="fa_angle_right">&#xf105;</string>
+    <string name="fa_angle_left">&#xf104;</string>
+
+
+
 </resources>

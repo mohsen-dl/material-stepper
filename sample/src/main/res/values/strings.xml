@@ -8,4 +8,8 @@
     <string name="non_linear">NON LINEAR</string>
     <string name="tabs_stepper_alternative">Tabs Stepper (Alternative)</string>
     <string name="tabs_stepper_classic">Tabs Stepper (Classic)</string>
+
+    <string name="Tab_fa">گام</string>
+
+    <string name="fa_space">&#160;</string>
 </resources>

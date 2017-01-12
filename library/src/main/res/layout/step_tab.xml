@@ -17,12 +17,12 @@
 
         <TextView
             android:id="@+id/step"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
             android:background="@drawable/circle_bg"
             android:gravity="center"
             android:textColor="#fff"
-            android:textSize="12sp" />
+            android:textSize="20sp"
+            android:layout_height="40dp"
+            android:layout_width="40dp" />
 
         <ImageView
             android:id="@+id/done"
@@ -44,16 +44,17 @@
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/icon"
         android:layout_toRightOf="@+id/icon"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha=".87"
-            android:fontFamily="sans-serifi-medium"
             android:textColor="@color/material_stepper_active_text"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/optional"
@@ -61,7 +62,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ms_optional"
             android:textColor="@color/material_stepper_optional"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:visibility="gone" />
 
     </LinearLayout>

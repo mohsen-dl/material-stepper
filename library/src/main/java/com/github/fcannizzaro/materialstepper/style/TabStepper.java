@@ -1,5 +1,6 @@
 package com.github.fcannizzaro.materialstepper.style;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
@@ -24,11 +25,14 @@ import com.github.fcannizzaro.materialstepper.util.LinearityChecker;
  */
 public class TabStepper extends BasePager implements View.OnClickListener {
 
+    private Context _context;
+
     protected TextView mError;
 
     // attributes
     int unselected = Color.parseColor("#9e9e9e");
-
+    int green = Color.parseColor("#43A047");
+    int _colorLightBlueHolo = Color.parseColor("#1976d2");
     // views
     private HorizontalScrollView mTabs;
     private LinearLayout mStepTabs;
@@ -38,7 +42,7 @@ public class TabStepper extends BasePager implements View.OnClickListener {
     private boolean mTabAlternative;
     private ViewSwitcher mSwitch;
     private LinearityChecker mLinearity;
-    private Button mContinue;
+    private TextView mContinue;
     private TextView mPreviousButton;
 
     protected void setLinear(boolean mLinear) {
@@ -62,6 +66,8 @@ public class TabStepper extends BasePager implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         applyTheme();
 
+        _context = this.getApplicationContext();
+
         if (getSupportActionBar() != null)
             getSupportActionBar().setElevation(0);
 
@@ -74,9 +80,11 @@ public class TabStepper extends BasePager implements View.OnClickListener {
         mSwitch = (ViewSwitcher) findViewById(R.id.stepSwitcher);
         mError = (TextView) findViewById(R.id.stepError);
         mPreviousButton = (TextView) findViewById(R.id.stepPrev);
+        mPreviousButton.setTypeface(GetTypeFace("fontawesome-webfont.ttf"));
+        mPreviousButton.setTextColor(_colorLightBlueHolo);
 
-        mContinue = (Button) findViewById(R.id.continueButton);
-        mContinue.setTextColor(primaryColor);
+        mContinue = (TextView) findViewById(R.id.continueButton);
+        mContinue.setTextColor(_colorLightBlueHolo);
         mContinue.setOnClickListener(this);
 
         mSwitch.setDisplayedChild(0);
@@ -126,16 +134,26 @@ public class TabStepper extends BasePager implements View.OnClickListener {
 
             TextView text = (TextView) view.findViewById(R.id.title);
             text.setTypeface(i == mSteps.current() || done ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            text.setTypeface(GetTypeFace("BYEKAN.TTF"));
+            text.setTextColor(i == mSteps.current() || done ? green : unselected);
             view.findViewById(R.id.title).setAlpha(i == mSteps.current() || done ? 1 : 0.54f);
 
+            TextView mOptional = (TextView) view.findViewById(R.id.optional);
+            mOptional.setTextColor(i == mSteps.current() || done ? green : unselected);
+            view.findViewById(R.id.optional).setAlpha(i == mSteps.current() || done ? 1 : 0.54f);
             mPreviousButton.setVisibility(showPrevButton && mSteps.current() > 0 ? View.VISIBLE : View.GONE);
 
         }
 
-        if (mSteps.current() == mSteps.total() - 1)
+        if (mSteps.current() == mSteps.total() - 1){
             mContinue.setText(R.string.ms_end);
-        else
-            mContinue.setText(R.string.ms_continue);
+            mContinue.setVisibility(View.GONE);
+        }else{
+            mContinue.setText(R.string.fa_angle_right);
+            mContinue.setTypeface(GetTypeFace("fontawesome-webfont.ttf"));
+            mContinue.setVisibility(View.VISIBLE);
+        }
+
 
     }
 
@@ -149,18 +167,54 @@ public class TabStepper extends BasePager implements View.OnClickListener {
 
     private View createStepTab(final int position, String title, boolean isOptional, String optionalStr) {
         View view = getLayoutInflater().inflate(mTabAlternative ? R.layout.step_tab_alternative : R.layout.step_tab, mStepTabs, false);
-        ((TextView) view.findViewById(R.id.step)).setText(String.valueOf(position + 1));
+
+        TextView mstep = (TextView) view.findViewById(R.id.step);
+        mstep.setTypeface(GetTypeFace("BYEKAN.TTF"));
+        mstep.setText(String.valueOf(position + 1));
+//        ((TextView) view.findViewById(R.id.step)).setText(String.valueOf(position + 1));
 
         if (isOptional) {
             view.findViewById(R.id.optional).setVisibility(View.VISIBLE);
-            ((TextView) view.findViewById(R.id.optional)).setText(optionalStr);
+//            ((TextView) view.findViewById(R.id.optional)).setText(optionalStr);
+            TextView moptionalStr = (TextView) view.findViewById(R.id.optional);
+            moptionalStr.setTypeface(GetTypeFace("IRANSansWeb_Medium.ttf"));
+            moptionalStr.setText(_context.getString(R.string.Select_fa));
+//            moptionalStr.setText(optionalStr);
         }
 
         if (position == mSteps.total() - 1)
             view.findViewById(R.id.divider).setVisibility(View.GONE);
 
-        ((TextView) view.findViewById(R.id.title)).setText(title);
+//        String Tab_fa = _context.getString(R.string.Select_fa);
+//        Tab_fa += getString(R.string.fa_space);
+//        Tab_fa += String.valueOf(position + 1);
 
+        TextView mtitle = (TextView) view.findViewById(R.id.title);
+        mtitle.setTypeface(GetTypeFace("BYEKAN.TTF"));
+
+        switch (position){
+            case 0:
+                mtitle.setText(_context.getString(R.string.City_fa));
+                break;
+            case 1:
+                mtitle.setText(_context.getString(R.string.JobType_fa));
+                break;
+            case 2:
+                mtitle.setText(_context.getString(R.string.FoodType_fa));
+                break;
+            case 3:
+                mtitle.setText(_context.getString(R.string.DeliveryType_fa));
+                break;
+            case 4:
+                mtitle.setText(_context.getString(R.string.OtherDetails_fa));
+                break;
+            default:
+                mtitle.setText("");
+                break;
+        }
+
+//        mtitle.setText(Tab_fa);
+//        ((TextView) view.findViewById(R.id.title)).setText(title);
 
         if (!disabledTouch)
             view.setOnClickListener(new View.OnClickListener() {
@@ -187,7 +241,7 @@ public class TabStepper extends BasePager implements View.OnClickListener {
 
     private void color(View view, boolean selected) {
         Drawable d = view.getBackground();
-        d.setColorFilter(new PorterDuffColorFilter(selected ? primaryColor : unselected, PorterDuff.Mode.SRC_ATOP));
+        d.setColorFilter(new PorterDuffColorFilter(selected ? green : unselected, PorterDuff.Mode.SRC_ATOP));
     }
 
     private void updateScrolling(int newPosition) {
@@ -240,4 +294,8 @@ public class TabStepper extends BasePager implements View.OnClickListener {
         this.showPrevButton = true;
     }
 
+    private Typeface GetTypeFace(String fontName){
+        Typeface face = Typeface.createFromAsset(_context.getAssets(), "fonts/" + fontName);
+        return face;
+    }
 }

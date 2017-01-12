@@ -12,6 +12,8 @@
     <color name="material_stepper_bottom_bar_button_pressed">#08000000</color>
     <color name="material_stepper_top_bar_text">#000</color>
 
+    <color name="colorLightBlueHolo">#1976d2</color>
+
     <!-- active step -->
 
     <color name="material_stepper_active_text">#57000000</color>
