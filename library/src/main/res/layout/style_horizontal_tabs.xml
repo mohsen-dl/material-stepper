@@ -66,7 +66,7 @@
             android:id="@+id/stepNavigation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border"
+            android:background="@drawable/tap_stepper_border"
             android:gravity="center_vertical">
 
             <TextView
