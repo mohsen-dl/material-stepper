@@ -1,6 +1,9 @@
 package com.fcannizzaro.sample;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.view.View;
+import android.widget.Toast;
 
 import com.github.fcannizzaro.materialstepper.AbstractStep;
 import com.github.fcannizzaro.materialstepper.style.TabStepper;
@@ -15,12 +18,10 @@ public class TabSample extends TabStepper {
     private String _RESERVE = "_RESERVE";
 
     private String _StepName = "_StepName";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         boolean linear = getIntent().getBooleanExtra("linear", false);
-
         setErrorTimeout(1500);
         setLinear(linear);
         setTitle("Tab Stepper <small>(" + (linear ? "" : "Non ") + "Linear)</small>");
@@ -38,7 +39,6 @@ public class TabSample extends TabStepper {
         for (int _tabs = 0; _tabs < tabCount; _tabs++){
             addStep(createFragment(new StepSample()));
         }
-
         super.onCreate(savedInstanceState);
     }
 

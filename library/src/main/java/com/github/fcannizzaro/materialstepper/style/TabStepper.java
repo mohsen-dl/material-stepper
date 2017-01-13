@@ -1,6 +1,8 @@
 package com.github.fcannizzaro.materialstepper.style;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
@@ -8,6 +10,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
@@ -44,6 +47,8 @@ public class TabStepper extends BasePager implements View.OnClickListener {
     private LinearityChecker mLinearity;
     private TextView mContinue;
     private TextView mPreviousButton;
+
+    private FloatingActionButton search_fab;
 
     protected void setLinear(boolean mLinear) {
         this.mLinear = mLinear;
@@ -86,6 +91,9 @@ public class TabStepper extends BasePager implements View.OnClickListener {
         mContinue = (TextView) findViewById(R.id.continueButton);
         mContinue.setTextColor(_colorLightBlueHolo);
         mContinue.setOnClickListener(this);
+
+        search_fab = (FloatingActionButton)findViewById(R.id.search_fab);
+        search_fab.setOnClickListener(this);
 
         mSwitch.setDisplayedChild(0);
         mSwitch.setInAnimation(TabStepper.this, R.anim.in_from_bottom);
@@ -278,11 +286,20 @@ public class TabStepper extends BasePager implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (updateDoneCurrent()) {
-            onNext();
-            updateScrolling(mSteps.current() + 1);
-        } else
-            onError();
+        int i = view.getId();
+        if (i == R.id.continueButton) {
+            if (updateDoneCurrent()) {
+                onNext();
+                updateScrolling(mSteps.current() + 1);
+            } else {
+                onError();
+            }
+        }else if (i == R.id.search_fab) {
+            Intent returnIntent = new Intent();
+            returnIntent.putExtra("data","data");
+            setResult(Activity.RESULT_OK,returnIntent);
+            finish();
+        }
     }
 
     @Deprecated
