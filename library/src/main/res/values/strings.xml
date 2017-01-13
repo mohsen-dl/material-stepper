@@ -14,6 +14,7 @@
     <string name="JobType_fa">نوع شغل</string>
     <string name="FoodType_fa">نوع غذا</string>
     <string name="DeliveryType_fa">شیوه تحویل سفارش</string>
+    <string name="FacilitiesType_fa">امکانات موجود</string>
     <string name="OtherDetails_fa">جزئیات دیگر</string>
     <string name="fa_space">&#160;</string>
 

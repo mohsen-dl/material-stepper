@@ -191,27 +191,28 @@ public class TabStepper extends BasePager implements View.OnClickListener {
 
         TextView mtitle = (TextView) view.findViewById(R.id.title);
         mtitle.setTypeface(GetTypeFace("BYEKAN.TTF"));
-
-        switch (position){
-            case 0:
-                mtitle.setText(_context.getString(R.string.City_fa));
-                break;
-            case 1:
-                mtitle.setText(_context.getString(R.string.JobType_fa));
-                break;
-            case 2:
-                mtitle.setText(_context.getString(R.string.FoodType_fa));
-                break;
-            case 3:
-                mtitle.setText(_context.getString(R.string.DeliveryType_fa));
-                break;
-            case 4:
-                mtitle.setText(_context.getString(R.string.OtherDetails_fa));
-                break;
-            default:
-                mtitle.setText("");
-                break;
-        }
+        mtitle.setText(title);
+//        switch (position){
+//            case 0:
+//                mtitle.setText(title);
+////                mtitle.setText(_context.getString(R.string.City_fa));
+//                break;
+//            case 1:
+//                mtitle.setText(_context.getString(R.string.JobType_fa));
+//                break;
+//            case 2:
+//                mtitle.setText(_context.getString(R.string.FoodType_fa));
+//                break;
+//            case 3:
+//                mtitle.setText(_context.getString(R.string.DeliveryType_fa));
+//                break;
+//            case 4:
+//                mtitle.setText(_context.getString(R.string.OtherDetails_fa));
+//                break;
+//            default:
+//                mtitle.setText("");
+//                break;
+//        }
 
 //        mtitle.setText(Tab_fa);
 //        ((TextView) view.findViewById(R.id.title)).setText(title);

@@ -20,6 +20,7 @@ public class StepSample extends AbstractStep {
     private Button button;
     private final static String CLICK = "click";
     private Context _context;
+    private String _StepName = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,8 +28,10 @@ public class StepSample extends AbstractStep {
         View v = inflater.inflate(R.layout.step, container, false);
         button = (Button) v.findViewById(R.id.button);
 
-        if (savedInstanceState != null)
+        if (savedInstanceState != null) {
             i = savedInstanceState.getInt(CLICK, 0);
+            _StepName = savedInstanceState.getString("_StepName");
+        }
 
         String Tab_fa = getString(R.string.Tab_fa);
         Tab_fa += getString(R.string.fa_space);
@@ -56,7 +59,9 @@ public class StepSample extends AbstractStep {
 
     @Override
     public String name() {
-        return "Tab " + getArguments().getInt("position", 0);
+        return getArguments().getString("_StepName");
+//        return _StepName;
+//        return "Tab " + getArguments().getInt("position", 0);
     }
 
     @Override
