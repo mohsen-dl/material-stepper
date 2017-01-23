@@ -69,6 +69,20 @@
             android:background="@drawable/tap_stepper_border"
             android:gravity="center_vertical">
 
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/search_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:src="@drawable/search100"
+                app:layout_anchorGravity="bottom|right|end"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                app:fabSize="normal"
+                app:backgroundTint="@color/colorLightBlueHolo"
+                app:elevation="0dp"
+                android:layout_margin="8dp" />
+
             <TextView
                 android:id="@+id/stepPrev"
                 android:layout_width="wrap_content"
@@ -107,17 +121,4 @@
 
     </ViewSwitcher>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/search_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/search100"
-        app:layout_anchorGravity="bottom|right|end"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        app:fabSize="normal"
-        app:backgroundTint="@color/colorLightBlueHolo"
-        app:elevation="0dp"
-        android:layout_margin="8dp" />
 </RelativeLayout>
