@@ -58,9 +58,9 @@
     <ViewSwitcher
         android:id="@+id/stepSwitcher"
         android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
         android:background="@color/material_stepper_top_bar"
-        android:layout_height="72dp">
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true">
 
         <RelativeLayout
             android:id="@+id/stepNavigation"
@@ -86,20 +86,22 @@
             <TextView
                 android:id="@+id/stepPrev"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:text="@string/fa_angle_left"
                 android:textSize="32sp"
-                android:padding="12dp" />
+                android:padding="15dp"
+                android:gravity="center" />
             <TextView
                 android:id="@+id/continueButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:textSize="32sp"
-                android:padding="12dp" />
+                android:padding="15dp"
+                android:gravity="center" />
 
         </RelativeLayout>
 
