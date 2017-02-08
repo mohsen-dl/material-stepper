@@ -297,8 +297,16 @@ public class TabStepper extends BasePager implements View.OnClickListener {
         }else if (i == R.id.search_fab) {
             Intent returnIntent = new Intent();
             returnIntent.putExtra("data","data");
-            setResult(Activity.RESULT_OK,returnIntent);
-            finish();
+            Class _Class = null;
+            try {
+                String class_name_str = "ir.uli.uli.view.SearchResultActivity";
+                _Class = Class.forName(class_name_str);
+                returnIntent = new Intent(this, _Class);
+                startActivity(returnIntent);
+            } catch (ClassNotFoundException e) {
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
+            }
         }
     }
 
